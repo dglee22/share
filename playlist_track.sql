@@ -1,3 +1,17 @@
+SET foreign_key_checks=0;
+DROP TABLE if EXISTS playlist_track;
+CREATE TABLE IF NOT EXISTS playlist_track
+(
+    PlaylistId INTEGER  NOT NULL,
+    TrackId INTEGER  NOT NULL,
+    PRIMARY KEY  (PlaylistId, TrackId),
+    FOREIGN KEY (PlaylistId) REFERENCES playlists (PlaylistId) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (TrackId) REFERENCES tracks (TrackId) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+SET foreign_key_checks=1;
+
 INSERT INTO playlist_track VALUES(1,3402);
 INSERT INTO playlist_track VALUES(1,3389);
 INSERT INTO playlist_track VALUES(1,3390);
